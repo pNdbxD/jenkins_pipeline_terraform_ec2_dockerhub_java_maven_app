@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: app-db
+    environment:
+      POSTGRES_PASSWORD: apppass
+    ports:
+      - "5432:5432"
+
+  app:
+    image: ${DOCKER_IMAGE}
+    container_name: app
+    ports:
+      - "8080:8080"
